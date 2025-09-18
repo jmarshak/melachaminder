@@ -7,18 +7,18 @@ wifi:
 
 # Switch this section based on your chip
 esp8266:
-  board: esp01_1m
+  board: esp8285
   restore_from_flash: true
 # esp32:
 #   board: esp32doit-devkit-v1
 
 substitutions:
-  device_name: "melachaplug-cloudfree-p2"     # access web UI using "device_name".local/ or it's IP
-  friendly_name: "Melacha Plug CloudFree P2"
+  device_name: "melachaminder-8285"      # access web UI using "device_name".local/ or it's IP
+  friendly_name: "Melacha Minder 8285"
   
-  relay_1_gpio:       "4"               # Switch this section
-  button_1_gpio:      "13"              # based on your chip
-  built_in_led_gpio:  "2"
+  relay_1_gpio:       "GPIO13"          # Switch this section
+  button_1_gpio:      "GPIO3"           # based on your chip
+  built_in_led_gpio:  "GPIO4"
   led_inverted:       "true"
 
   relay_restore_mode:    "ALWAYS_OFF"              # relay and led state on startup, change to ALWAYS_ON,
@@ -27,8 +27,8 @@ substitutions:
   timezone: America/New_York            # check format at en.wikipedia.org/wiki/List_of_tz_database_time_zones
   eretz_yisrael: "RESTORE_DEFAULT_OFF"  # switch to RESTORE_DEFAULT_ON if located in EY and do a one day Yom Tov
 
-  latitude:  "40.669000"                # change to your location (important for proper zmanim) default:  40.669000
-  longitude: "-73.942770"               # 770 Chabad Lubavitch World Headquarters                        -73.942770
+  latitude:  "40.669000"                
+  longitude: "-73.942770"               
   
   min_offset_start: "-30"               # offset in minutes (on Shabbos start options are: -300 - 120, on end: -120 - 120)
   min_offset_end:   "0"                 # use negative number for an early offset (-30) and positive for a later offset
@@ -39,21 +39,21 @@ substitutions:
 
 esphome:
   includes:
-    - header-files/melachaplug_main.h
+    - header-files/melachaminder_main.h
 
 packages:
   # Local Packages saved in plugins folder
-  # melacha_config:      !include plugins/melachaplug/melacha_config.yaml     # Required
-  # plug_info:           !include plugins/melachaplug/plug_info.yaml          # Required
-  # location_info:       !include plugins/melachaplug/location_info.yaml      # Required
-  # optional_config:     !include plugins/melachaplug/optional_config.yaml    # Optional
+  # melacha_config:      !include plugins/melachaminder/melacha_config.yaml     # Required
+  # plug_info:           !include plugins/melachaminder/plug_info.yaml          # Required
+  # location_info:       !include plugins/melachaminder/location_info.yaml      # Required
+  # optional_config:     !include plugins/melachaminder/optional_config.yaml    # Optional
 
   remote_package:
-    url: https://github.com/chabad-source/melachaplug/
+    url: https://github.com/jmarshak/melachaminder/
     ref: main                                                               # optional
     files: 
-      - esphome/plugins/melachaplug/melacha_config.yaml                     # Required
-      - esphome/plugins/melachaplug/plug_info.yaml                          # Required
-      - esphome/plugins/melachaplug/location_info.yaml                      # Required
-      - esphome/plugins/melachaplug/optional_config.yaml                    # Optional
+      - esphome/plugins/melachaminder/melacha_config.yaml                     # Required
+      - esphome/plugins/melachaminder/plug_info.yaml                          # Required
+      - esphome/plugins/melachaminder/location_info.yaml                      # Required
+      - esphome/plugins/melachaminder/optional_config.yaml                    # Optional
     refresh: 1d                                                             # Optional

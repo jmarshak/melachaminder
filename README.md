@@ -1,10 +1,10 @@
-[![Melacha Plug Banner](https://github.com/chabad-source/melachaplug/blob/main/images/Melacha%20Plug%20Banner.png)](https://github.com/chabad-source/melachaplug)
+[![Melacha Minder Banner](https://github.com/jmarshak/melachaminder/blob/main/images/Melacha%20Plug%20Banner.png)](https://github.com/jmarshak/melachaminder)
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f17caa6e3d2946378de9beae9fc0ffe8)](https://www.codacy.com/gh/chabad-source/melachaplug/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chabad-source/melachaplug&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f17caa6e3d2946378de9beae9fc0ffe8)](https://www.codacy.com/gh/jmarshak/melachaplug/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jmarshak/melachaminder&amp;utm_campaign=Badge_Grade)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=Q9A7HG8NQEJRU)
 
-# Melacha Plug
+# Melacha Minder
 A [Melacha](https://www.chabad.org/95906/) aware plug which knows when it's [Shabbos](https://www.chabad.org/633659/) or [Yom Tov](https://www.chabad.org/holidays/default_cdo/jewish/holidays.htm).
 
 This project is using [ESPHome](https://esphome.io/).
@@ -22,7 +22,7 @@ The solution is here!
 -   [x] Adaptable: All code is open source, allowing for easy tweaking, correction, and expansion.
 -   [x] Easy: Simply plug and play, and you're all set!
 
-![Web Server Screenshot](https://github.com/chabad-source/melachaplug/blob/main/images/Web%20Server%20Screenshot.png)
+![Web Server Screenshot](https://github.com/jmarshak/melachaminder/blob/main/images/Web%20Server%20Screenshot.png)
 
 ## Getting Started
 
@@ -39,10 +39,10 @@ The solution is here!
 -   Your location won't be 100% accurate (you can update it via the web UI). 
 
 *Instructions*
--   Download the melachaplug.bin file from above. (currently none are compiled)
+-   Download the melachaminder.bin file from above. (currently none are compiled)
 -   If your device is using Tasmota, follow instructions on how to upgrade from the [ESPHome docs](https://esphome.io/guides/migrate_sonoff_tasmota.html) or [Tasmota docs](https://tasmota.github.io/docs/Upgrading/#upgrade-using-webui).
 -   If your device is using ESPHome, use the web UI to install the firmware.
--   Once the firmware is installed it will create a WiFi access point called "Melacha Plug Fallback", connect to it using any phone or computer.
+-   Once the firmware is installed it will create a WiFi access point called "Melacha Minder Fallback", connect to it using any phone or computer.
 -   On the devices webpage enter in your WiFi details (it should pop up, if it doesn't then it can be accessed via it's IP).
 -   The device will restart, and should appear on your WiFi network.
 

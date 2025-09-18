@@ -15,7 +15,7 @@ or connect to: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 
 #pragma once
 
-//#include "../config/esphome/header-files/hebrewcalender_melachaplug.h"
+//#include "../config/esphome/header-files/hebrewcalender_MelachaMinder.h"
 #include "esphome.h"
 using namespace esphome;
 using namespace time;
@@ -24,13 +24,14 @@ namespace Hdate  {
     hdate current_hdate;  // global varible for todays hebrew date
 } // namespace Hdate
 
-namespace MelachaPlug  {
+namespace MelachaMinder  {
 
     time_t getPlagTime() {
         ESP_LOGD("getPlagTime", "getPlagTime ran");
         esphome::ESPTime date = id(sntp_time).now();
         date.hour = date.minute = date.second = 0;                          // uptime time to 00:00:00
         date.recalc_timestamp_utc();
+        // Todo
         auto sunrise_today = id(mysun).sunrise(date, -1.583);               // time of hanetz amiti Alter Rebbe
         auto sunset_today = id(mysun).sunset(date, -1.583);                 // time of shkiah amitis Alter Rebbe
         float shaahzmanis = (sunset_today->timestamp - sunrise_today->timestamp) / 12;
@@ -70,7 +71,7 @@ namespace MelachaPlug  {
         time_t timestamp_now = date.timestamp;                       // save the current timestamp before updating the date
         struct tm tm_time_now = date.to_c_tm();
         Hdate::current_hdate = convertDate(tm_time_now);             // convert current english date to the hebrew date
-        MelachaPlug::setEretzYisrael();                              // confirm EY is set correctly
+        MelachaMinder::setEretzYisrael();                              // confirm EY is set correctly
 
         // check which degree and offset we calculate from
         if (isassurbemelachah(Hdate::current_hdate) == false) {
@@ -167,6 +168,7 @@ namespace MelachaPlug  {
         ESP_LOGD("publishHebrewDay", "Year: %d Month: %s Day: %d", Hdate::current_hdate.year, hebrew_month.c_str(), Hdate::current_hdate.day);
     }
 
+    // TODO
     void setAlterRebbeZmanim() {
         // reverts to default Alter Rebbe zmanin
         id(deg_shabbos_starts).publish_state(-0.833);
@@ -201,12 +203,12 @@ namespace MelachaPlug  {
     // ---------------------------------------- On Sequences ----------------------------------------
     void runMelachaChecks() {
         ESP_LOGD("runMelachaChecks", "runMelachaChecks ran");
-        MelachaPlug::updateHdate();           // update the hebrew date
-        MelachaPlug::setShabbosMode();        // checks if issur and turns on Shabbos mode
-        MelachaPlug::publishHebrewDay();      // update the hebrew day text sensor
-        MelachaPlug::updateTextSensors();
+        MelachaMinder::updateHdate();           // update the hebrew date
+        MelachaMinder::setShabbosMode();        // checks if issur and turns on Shabbos mode
+        MelachaMinder::publishHebrewDay();      // update the hebrew day text sensor
+        MelachaMinder::updateTextSensors();
     }
-} // namespace MelachaPlug
+} // namespace MelachaMinder
 
 
 namespace LocationExtras  {

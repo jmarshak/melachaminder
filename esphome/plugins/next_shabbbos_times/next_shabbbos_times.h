@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "../../../../plugins/hebrewcalender_melachaplug/hebrewcalender_melachaplug.h"
+#include "../../../esphome/header-files/hebrewcalender_melachaminder.h"
 
 #include "esphome.h"
 using namespace esphome;
